@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/helloworld', fn () => view('helloworld'));
 Route::get('/hello', fn () => view('hello', [
     'name' => '妻夫木',
     'course' => 'laravel'
 ]));
+Route::get('/', fn () => view('index'));
+Route::get('/curriculum', fn () => view('curriculum'));
