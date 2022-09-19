@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\UtilityController;
 use App\Http\Controllers\RequestSampleController;
@@ -48,3 +49,6 @@ Route::get('/route-link', [RequestSampleController::class, 'routeLink']);
 // ログイン
 Route::get('/login', [RequestSampleController::class, 'loginForm']);
 Route::post('/login', [RequestSampleController::class, 'login'])->name('login');
+
+// イベント
+Route::resource('/events', EventController::class)->only('index','create','store');
