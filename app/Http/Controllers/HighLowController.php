@@ -8,13 +8,15 @@ class HighLowController extends Controller
 {
     public function index() {
         $dealersNumber = random_int(1, 12);
+        // セッションに保存
+        session(['dealersNumber' => $dealersNumber]);
 
         return view('high-low.index', ['dealersNumber' => $dealersNumber]);
     }
 
     public function result(Request $request) {
-        // ディーラーの数字(hidden値で送信されたもの)を取得
-        $dealersNumber = $request->get('dealersNumber');
+        // ディーラーの数字(セッションに保存されたもの)を取得
+        $dealersNumber = session('dealersNumber');
 
         // プレイヤーの数字を1~12の中からランダムに取得
         $playersNumber = random_int(1, 12);
