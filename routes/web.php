@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\HighLowController;
 use App\Http\Controllers\UtilityController;
 use App\Http\Controllers\RequestSampleController;
 use Illuminate\Routing\Route as RoutingRoute;
@@ -52,3 +53,5 @@ Route::post('/login', [RequestSampleController::class, 'login'])->name('login');
 
 // イベント
 Route::resource('/events', EventController::class)->only('index','create','store');
+Route::get('/high-low', [HighLowController::class, 'index'])->name('high-low');
+Route::post('/high-low',[HighLowController::class, 'result']);
