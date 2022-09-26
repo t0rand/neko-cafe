@@ -3,6 +3,7 @@
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HighLowController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\UtilityController;
 use App\Http\Controllers\RequestSampleController;
 use Illuminate\Routing\Route as RoutingRoute;
@@ -55,3 +56,7 @@ Route::post('/login', [RequestSampleController::class, 'login'])->name('login');
 Route::resource('/events', EventController::class)->only('index','create','store');
 Route::get('/high-low', [HighLowController::class, 'index'])->name('high-low');
 Route::post('/high-low',[HighLowController::class, 'result']);
+
+// ファイル管理
+Route::resource('/photos', PhotoController::class)->only('create', 'store', 'show', 'destroy');
+Route::get('/photos/{photo}/download', [PhotoController::class, 'download'])->name('photos.download');
