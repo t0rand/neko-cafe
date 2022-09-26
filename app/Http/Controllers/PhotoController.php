@@ -92,6 +92,6 @@ class PhotoController extends Controller
 
     public function download($photo)
     {
-      return Storage::disk('public')->download('photos/'.$fileName, 'アップロード画像.jpg');
+      return Storage::disk('public')->Storage::download('photos/'.$photo, 'アップロード画像.jpg');
     }
 }
